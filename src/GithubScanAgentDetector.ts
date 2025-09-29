@@ -1,5 +1,5 @@
-import { ScanAgent, ScanAgentType } from "@userway/cicd-api";
-import { Logger, ScanAgentDetector } from "@userway/cicd-core";
+import { ScanAgent, ScanAgentType } from "@level-ci/api";
+import { Logger, ScanAgentDetector } from "@level-ci/core";
 import { version } from "../package.json";
 
 export class GithubScanAgentDetector implements ScanAgentDetector {
