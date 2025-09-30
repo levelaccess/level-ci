@@ -1,9 +1,11 @@
-name: Update @userway/cicd-core package
+name: Update @level-ci/core package
 
 on: [workflow_dispatch]
 
 jobs:
   run-package-script:
+    env:  
+      LEVEL_ACCESS_NPM_TOKEN: ${{ secrets.LEVEL_ACCESS_NPM_TOKEN }}
     runs-on: ubuntu-latest
 
     steps:
@@ -15,8 +17,8 @@ jobs:
         with:
           node-version: "20.x"
 
-      - name: Update @userway/cicd-core package
-        run: npx npm-check-updates -u @userway/cicd-core && npm install @userway/cicd-core@alpha
+      - name: Update @level-ci/core package
+        run: npx npm-check-updates -u @level-ci/core && npm install @level-ci/core@alpha
 
       - name: Run package script
         run: npm run package
