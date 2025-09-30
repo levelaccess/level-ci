@@ -4,8 +4,9 @@ on: [push]
 
 jobs:
   run-package-script:
+    env:  
+      LEVEL_ACCESS_NPM_TOKEN: ${{ secrets.LEVEL_ACCESS_NPM_TOKEN }} 
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -16,6 +17,7 @@ jobs:
           node-version: "20.x"
 
       - name: Install dependencies
+
         run: npm install
 
       - name: Run package script

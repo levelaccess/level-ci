@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
-import * as userway from "@userway/cicd-core";
+import * as levelCi from "@level-ci/core";
 
-const filterEmpty = userway.filter<userway.Options>((property) => {
+const filterEmpty = levelCi.filter<levelCi.Options>((property) => {
   const isNotUndefined = property !== undefined;
   const isNotEmptyString = property !== "";
   const isNotEmptyArray = Array.isArray(property) ? property.length > 0 : true;
