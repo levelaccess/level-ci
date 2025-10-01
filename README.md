@@ -20,33 +20,42 @@ Level CI helps developers maintain high WCAG and ADA compliance in their web app
 
 Project metadata, including the location of the reports to be analyzed, must be declared in the file level-ci.config.js (or level-ci.config.ts) in the base directory
 
-    // level-ci.config.js
-    /** @type {import('@userway/cicd-cli').Config} */
-    module.exports = {
-      organization: 'my-organization-slug',
-      project: 'my-project-name',
+    // level-ci.config.ts
+    import type { Config } from "@level-ci/cli";
+
+    export default {
+      organization: 'your-orgainzation-slug',
+      project: 'your-project-name',
       token: process.env.LEVEL_CI_TOKEN,
-      reportPaths: ['./uw-a11y-reports']
-    };
+      reportPaths: ['./level-ci-reports']
+    } satisfies Config;
 
 The workflow, usually declared in .github/workflows/build.yml, looks like:
 
     # .github/workflows/build.yml
     on:
       push:
-      branches:
-      - master
+        branches:
+          - main
       pull_request:
-      types: [opened, synchronize, reopened]
-    name: Main Workflow
+        types: [opened, synchronize, reopened]
+
+    name: Level CI Analysis
     jobs:
-      userway-cicd:
+      level-ci-analysis:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
 
-        - name: Level CI Accessibility Analysis
-          uses: UserWayOrg/cicd-action@main
+        - name: Install npm packages
+          run: npm ci
+          env:
+            CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_TOKEN }}
+
+        # Insert your e2e test execution steps here
+
+        - name: Run Level CI Accessibility Analysis
+          uses: levelaccess/level-ci@main
           with:
             token: ${{ secrets.LEVEL_CI_TOKEN }}
 
