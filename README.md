@@ -12,9 +12,9 @@ Level CI helps developers maintain high WCAG and ADA compliance in their web app
 
 **Requirements:**
 
-- Create your account on [Level CI](https://cicd.userway.org)
+- Create your account on [Level CI](https://ci.levelaccess.net)
 - Import your web application repository to analyze in just a few clicks
-- Integrate Level CI accessibility reports generation into your end-to-end tests. Cypress, Playwright, Selenium and Puppeteer are supported. Read more about [e2e tests integrations](https://docs.cicd.userway.org/)
+- Integrate Level CI accessibility reports generation into your end-to-end tests. Cypress, Playwright, Selenium and Puppeteer are supported. Read more about [e2e tests integrations](https://docs.ci.levelaccess.net)
 
 **Usage:**
 
@@ -65,11 +65,11 @@ _LEVEL_CI_TOKEN_ – this is the token used to authenticate access to Level CI. 
 
 **Example of pull request analysis:**
 
-Want to see more examples of Level CI in action? You can explore Level CI [sample project](https://github.com/UserWayOrg/cicd-action-sample)
+Want to see more examples of Level CI in action? You can explore Level CI [sample project](https://github.com/levelaccess/level-ci-sample-github)
 
 **Have questions or feedback?**
 
-To provide feedback or request assistance please [contact us](https://userway.org/contact)
+To provide feedback or request assistance please [contact us](https://www.levelaccess.com/contact)
 
 **License**
 
