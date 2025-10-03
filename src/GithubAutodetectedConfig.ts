@@ -1,9 +1,9 @@
 import * as github from "@actions/github";
-import * as userway from "@userway/cicd-core";
+import * as levelCi from "@level-ci/core";
 
 export class GithubAutodetectedConfig
-  extends userway.GitAutodetectedConfig
-  implements userway.AutodetectedConfig
+  extends levelCi.GitAutodetectedConfig
+  implements levelCi.AutodetectedConfig
 {
   public get commitHash(): string {
     if (github.context.payload.pull_request) {

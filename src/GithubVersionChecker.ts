@@ -1,17 +1,13 @@
-import * as userway from "@userway/cicd-core";
+import * as levelCi from "@level-ci/core";
 import * as packagejson from "../package.json";
 
 export class GithubVersionChecker
-  extends userway.CoreVersionChecker
-  implements userway.VersionChecker
+  extends levelCi.CoreVersionChecker
+  implements levelCi.VersionChecker
 {
-  public readonly name = packagejson.name as userway.VersionChecker["name"];
+  public readonly name = packagejson.name as levelCi.VersionChecker["name"];
   public readonly version = packagejson.version;
-
-  public get message(): string {
-    return `
+  public message = `
         The current version of ${this.name} is outdated.
-        Please consider updating to the latest version.
-    `;
-  }
+        Please consider updating to the latest version.`;
 }
