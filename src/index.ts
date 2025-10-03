@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-import { scan } from "@userway/cicd-core";
+import { scan } from "@level-ci/core";
 import { getOptions } from "./getOptions";
 import { GithubAutodetectedConfig } from "./GithubAutodetectedConfig";
 import { GithubScanAgentDetector } from "./GithubScanAgentDetector";
@@ -13,7 +13,7 @@ scan(options, {
     return new GithubAutodetectedConfig(logger);
   },
   versionCheckerFactory: ({ logger, api }) => {
-    return new GithubVersionChecker(logger, api);
+    return new GithubVersionChecker();
   },
   scanAgentDetectorFactory: ({ logger }) => {
     return new GithubScanAgentDetector(logger);
