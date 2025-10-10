@@ -1,4 +1,4 @@
-name: "Accessibility Analysis"
+name: "Level CI"
 description: "Analyze the accessibility of a website"
 branding:
   icon: check
