@@ -12,50 +12,41 @@ Level CI helps developers maintain high WCAG and ADA compliance in their web app
 
 **Requirements:**
 
-- Create your account on [Level CI](https://ci.levelaccess.net)
+- Create your account on [Level CI](https://cicd.userway.org)
 - Import your web application repository to analyze in just a few clicks
-- Integrate Level CI accessibility reports generation into your end-to-end tests. Cypress, Playwright, Selenium and Puppeteer are supported. Read more about [e2e tests integrations](https://docs.ci.levelaccess.net)
+- Integrate Level CI accessibility reports generation into your end-to-end tests. Cypress, Playwright, Selenium and Puppeteer are supported. Read more about [e2e tests integrations](https://docs.cicd.userway.org/)
 
 **Usage:**
 
 Project metadata, including the location of the reports to be analyzed, must be declared in the file level-ci.config.js (or level-ci.config.ts) in the base directory
 
-    // level-ci.config.ts
-    import type { Config } from "@level-ci/cli";
-
-    export default {
-      organization: 'your-orgainzation-slug',
-      project: 'your-project-name',
+    // level-ci.config.js
+    /** @type {import('@userway/cicd-cli').Config} */
+    module.exports = {
+      organization: 'my-organization-slug',
+      project: 'my-project-name',
       token: process.env.LEVEL_CI_TOKEN,
-      reportPaths: ['./level-ci-reports']
-    } satisfies Config;
+      reportPaths: ['./uw-a11y-reports']
+    };
 
 The workflow, usually declared in .github/workflows/build.yml, looks like:
 
     # .github/workflows/build.yml
     on:
       push:
-        branches:
-          - main
+      branches:
+      - master
       pull_request:
-        types: [opened, synchronize, reopened]
-
-    name: Level CI Analysis
+      types: [opened, synchronize, reopened]
+    name: Main Workflow
     jobs:
-      level-ci-analysis:
+      userway-cicd:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
 
-        - name: Install npm packages
-          run: npm ci
-          env:
-            CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_TOKEN }}
-
-        # Insert your e2e test execution steps here
-
-        - name: Run Level CI Accessibility Analysis
-          uses: levelaccess/level-ci@main
+        - name: Level CI Accessibility Analysis
+          uses: UserWayOrg/cicd-action@main
           with:
             token: ${{ secrets.LEVEL_CI_TOKEN }}
 
@@ -65,11 +56,11 @@ _LEVEL_CI_TOKEN_ – this is the token used to authenticate access to Level CI. 
 
 **Example of pull request analysis:**
 
-Want to see more examples of Level CI in action? You can explore Level CI [sample project](https://github.com/levelaccess/level-ci-sample-github)
+Want to see more examples of Level CI in action? You can explore Level CI [sample project](https://github.com/UserWayOrg/cicd-action-sample)
 
 **Have questions or feedback?**
 
-To provide feedback or request assistance please [contact us](https://www.levelaccess.com/contact)
+To provide feedback or request assistance please [contact us](https://userway.org/contact)
 
 **License**
 
