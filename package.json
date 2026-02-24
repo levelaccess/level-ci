@@ -15,7 +15,7 @@
     "@level-ci/core": "^0.1.12-alpha.2859"
   },
   "devDependencies": {
-    "@types/node": "^20.11.19",
+    "@types/node": "^22.19.8",
     "@vercel/ncc": "^0.38.1",
     "typescript": "^5.3.3"
   }
