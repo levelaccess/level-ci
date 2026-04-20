@@ -1,5 +1,9 @@
-import { ScanAgent, ScanAgentType } from "@level-ci/api";
-import { Logger, ScanAgentDetector } from "@level-ci/core";
+import {
+  Logger,
+  ScanAgentDetector,
+  ScanAgent,
+  ScanAgentType,
+} from "@level-ci/core";
 import { version } from "../package.json";
 
 export class GithubScanAgentDetector implements ScanAgentDetector {
