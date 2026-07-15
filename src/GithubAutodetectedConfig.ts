@@ -1,17 +1,11 @@
 import * as github from "@actions/github";
 import * as levelCi from "@level-ci/core";
+import { execSync } from "child_process";
 
 export class GithubAutodetectedConfig
   extends levelCi.GitAutodetectedConfig
   implements levelCi.AutodetectedConfig
 {
-  private readonly git: levelCi.Process;
-
-  constructor(logger: levelCi.Logger, process = new levelCi.Process(logger)) {
-    super(logger, process);
-    this.git = process;
-  }
-
   public get commitHash(): string {
     if (github.context.payload.pull_request) {
       return github.context.payload.pull_request.head.sha!;
@@ -41,6 +35,14 @@ export class GithubAutodetectedConfig
       return github.context.ref.slice("refs/heads/".length);
     }
 
-    return super.branch;
+    const branch = execSync(
+      `git branch -r --contains "${github.context.ref}" --format="%(refname:lstrip=3)"`,
+      { encoding: "utf8" },
+    )
+      .split("\n")
+      .map((line) => line.trim())
+      .find((name) => name.length > 0 && name !== "HEAD");
+
+    return branch ?? super.branch;
   }
 }
