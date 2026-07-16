@@ -66052,6 +66052,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GithubAutodetectedConfig = void 0;
 const github = __importStar(__nccwpck_require__(3228));
 const levelCi = __importStar(__nccwpck_require__(8534));
+const child_process_1 = __nccwpck_require__(5317);
 class GithubAutodetectedConfig extends levelCi.GitAutodetectedConfig {
     get commitHash() {
         if (github.context.payload.pull_request) {
@@ -66068,6 +66069,19 @@ class GithubAutodetectedConfig extends levelCi.GitAutodetectedConfig {
         if (github.context.payload.pull_request) {
             return github.context.payload.pull_request.number;
         }
+    }
+    get branch() {
+        if (github.context.payload.pull_request) {
+            return github.context.payload.pull_request.head.ref;
+        }
+        if (github.context.ref.startsWith("refs/heads/")) {
+            return github.context.ref.slice("refs/heads/".length);
+        }
+        const branch = (0, child_process_1.execSync)(`git branch -r --contains "${github.context.ref}" --format="%(refname:lstrip=3)"`, { encoding: "utf8" })
+            .split("\n")
+            .map((line) => line.trim())
+            .find((name) => name.length > 0 && name !== "HEAD");
+        return branch ?? super.branch;
     }
 }
 exports.GithubAutodetectedConfig = GithubAutodetectedConfig;
