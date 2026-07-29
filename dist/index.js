@@ -78996,7 +78996,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"application/1d-interleaved-parityfec
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@userway/cicd-github","version":"0.1.2","description":"","main":"dist/index.js","scripts":{"package":"ncc build src/index.ts --license licenses.txt"},"keywords":[],"author":"","license":"ISC","dependencies":{"@actions/core":"^1.10.1","@actions/github":"^6.0.0","@level-ci/core":"^0.1.20-alpha.3124"},"devDependencies":{"@types/node":"^22.19.8","@vercel/ncc":"^0.38.1","typescript":"^5.3.3"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@userway/cicd-github","version":"0.1.2","description":"","main":"dist/index.js","scripts":{"package":"ncc build src/index.ts --license licenses.txt"},"keywords":[],"author":"","license":"ISC","dependencies":{"@actions/core":"^1.10.1","@actions/github":"^6.0.0","@level-ci/core":"^0.1.20-alpha.3150"},"devDependencies":{"@types/node":"^22.19.8","@vercel/ncc":"^0.38.1","typescript":"^5.3.3"}}');
 
 /***/ })
 
