@@ -20,7 +20,6 @@ function parseBoolean(value: string): boolean | undefined {
 
 export function getOptions() {
   const secondaryRepositoryKey = core.getInput("secondary_repository_key");
-  const pullRequest = core.getInput("pull_request");
 
   return filterEmpty({
     configPath: core.getInput("config_path"),
@@ -36,7 +35,7 @@ export function getOptions() {
     contributorName: core.getInput("contributor_name"),
     contributorEmail: core.getInput("contributor_email"),
     secondaryRepositoryKey,
-    pullRequest: pullRequest || (secondaryRepositoryKey ? null : undefined),
+    pullRequest: core.getInput("pull_request"),
 
     assigneeEmail: core.getInput("assignee_email"),
 
@@ -48,8 +47,5 @@ export function getOptions() {
     dryRun: parseBoolean(core.getInput("dry_run")),
     ignoreQualityGate: parseBoolean(core.getInput("ignore_quality_gate")),
     verbose: core.isDebug(),
-  } as levelCi.Options & {
-    secondaryRepositoryKey?: string;
-    pullRequest?: string | null;
   });
 }
