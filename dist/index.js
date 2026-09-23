@@ -66227,8 +66227,6 @@ function parseBoolean(value) {
     return undefined;
 }
 function getOptions() {
-    const secondaryRepositoryKey = core.getInput("secondary_repository_key");
-    const pullRequest = core.getInput("pull_request");
     return filterEmpty({
         configPath: core.getInput("config_path"),
         token: core.getInput("token"),
@@ -66240,8 +66238,8 @@ function getOptions() {
         branch: core.getInput("branch"),
         contributorName: core.getInput("contributor_name"),
         contributorEmail: core.getInput("contributor_email"),
-        secondaryRepositoryKey,
-        pullRequest: pullRequest || (secondaryRepositoryKey ? null : undefined),
+        secondaryRepositoryKey: core.getInput("secondary_repository_key"),
+        pullRequest: core.getInput("pull_request"),
         assigneeEmail: core.getInput("assignee_email"),
         reportPaths: core.getInput("report_paths").split(",").filter(Boolean),
         concurrency: core.getInput("concurrency"),
