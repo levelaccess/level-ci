@@ -78998,7 +78998,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"application/1d-interleaved-parityfec
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@userway/cicd-github","version":"0.1.2","description":"","main":"dist/index.js","scripts":{"package":"ncc build src/index.ts --license licenses.txt"},"keywords":[],"author":"","license":"ISC","dependencies":{"@actions/core":"^1.10.1","@actions/github":"^6.0.0","@level-ci/core":"^0.2.0-alpha-647d89dfd145f72850a45706a55774851930be2f"},"devDependencies":{"@types/node":"^22.19.8","@vercel/ncc":"^0.38.1","typescript":"^5.3.3"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@userway/cicd-github","version":"0.1.2","description":"","main":"dist/index.js","scripts":{"package":"ncc build src/index.ts --license licenses.txt"},"keywords":[],"author":"","license":"ISC","dependencies":{"@actions/core":"^1.10.1","@actions/github":"^6.0.0","@level-ci/api":"0.2.0-beta-87bed688e6a68d3c517483a229d23edaea2aba52","@level-ci/core":"^0.2.0-alpha-647d89dfd145f72850a45706a55774851930be2f"},"devDependencies":{"@types/node":"^22.19.8","@vercel/ncc":"^0.38.1","typescript":"^5.3.3"}}');
 
 /***/ })
 
