@@ -12,8 +12,7 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-    "@level-ci/api": "0.2.0-beta-87bed688e6a68d3c517483a229d23edaea2aba52",
-    "@level-ci/core": "^0.2.0-alpha-647d89dfd145f72850a45706a55774851930be2f"
+    "@level-ci/core": "^0.2.0-beta-87bed688e6a68d3c517483a229d23edaea2aba52"
   },
   "devDependencies": {
     "@types/node": "^22.19.8",
