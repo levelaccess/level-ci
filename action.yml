@@ -29,6 +29,10 @@ inputs:
     description: "Contributor email"
   assignee_email:
     description: "Assignee email"
+  secondary_repository_key:
+    description: "Connected secondary repository key"
+  pull_request:
+    description: "Pull request number"
 
   report_paths:
     description: "Paths to report folders"

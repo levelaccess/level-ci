@@ -32,6 +32,8 @@ export function getOptions() {
     branch: core.getInput("branch"),
     contributorName: core.getInput("contributor_name"),
     contributorEmail: core.getInput("contributor_email"),
+    secondaryRepositoryKey: core.getInput("secondary_repository_key"),
+    pullRequest: core.getInput("pull_request"),
 
     assigneeEmail: core.getInput("assignee_email"),
 
