@@ -12,7 +12,7 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-    "@level-ci/core": "^0.2.1-alpha-1f65d1c889765a7cddd62daff44a7598db9e3f2e"
+    "@level-ci/core": "^0.2.1-beta-bd40e4d727e03f415e52ec2028c47c668941bfcf"
   },
   "devDependencies": {
     "@types/node": "^22.19.8",
